@@ -87,6 +87,14 @@ input:focus::placeholder{
   opacity: 0;
 }
 
+p{
+  height: 20px;
+  line-height: 20px;
+  color: var(--point-letter);
+  font-size: 14;
+  margin-top: 10px;
+}
+
 button{
   width: 80px;
   height: 40px;

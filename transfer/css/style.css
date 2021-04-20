@@ -30,6 +30,7 @@ a:visited{ text-decoration: none;}
   --sub-blue : #555FF1;
 }
 
+
 .container{
   overflow: hidden;
 }
@@ -48,81 +49,43 @@ a:visited{ text-decoration: none;}
 .header h1{
   margin-bottom: 50px;
   font-style: italic;
+  display: inline-block;
 }
 
 
 .user{
-  width: 80px;
-  height: 80px;
-  border-radius: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
   background-color: var(--point-letter);
-  margin: 0 auto;
+  position:absolute;
+  top: 15px;
+  right: 20px;
+
 }
 
 .user img{ width: 100%;}
 
-
-/* --------- current balance ----------*/
-.current-balance{
-  width: 80%;
-  height: 180px;
-  padding: 3% 5%;
-  background-color: var(--sub-blue);
-  border-radius: 20px;
-  position:absolute;
-  top: 70%;
-  left: 10%;
-
-}
-
 .current-balance h3{
-  position: relative;
-  z-index: 3;
+  margin-top: 30px;
   font-size: 20px;
   font-weight: 400;
 }
-.current-balance h3::before{
-  content: '';
-  position: absolute;
-  top: -5px;
-  left:-10px;
-  width: 26px;
-  height: 26px;
-  background-color: var(--point-orange);
-  border-radius: 50%;
-  z-index: -1;
-}
-
-.current-balance h3::after{
-  content: '';
-  position: absolute;
-  top: -8px;
-  left:-15px;
-  width: 15px;
-  height: 15px;
-  background-color: var(--main-blue);
-  border-radius: 50%;
-  z-index: -1;
-}
-
 .current-balance h4{
   font-size: 14px;
   font-weight: 300;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 } 
-
 .current-balance p{
   font-size: 36px;
   font-weight: 700;
   text-align: right;
 }
 
+ /* ################## Section : Transfer money ##################### */
 
- /* ################## Section : accounts ##################### */
-
-.accounts{
-  padding: 10% 5% 0 5%;
-  margin-top: 20%;
+.transfer{
+  padding: 15% 5% 0 5%;
 }
 
 h2{
@@ -131,7 +94,7 @@ h2{
   display: inline-block;
 }
 
-.accounts a span{
+.transfer a span{
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -142,81 +105,116 @@ h2{
   text-align: center;
   float: right;
 }
-
-/* --------- accounts box ----------*/
-
-.account-box{
+/* --------- transfer bookmark ----------*/
+.bookmark{
   width: 90%;
-  height: 180px;
-  padding: 3% 5%;
-  background-color: var(--point-orange);
-  border-radius: 20px;
+  height: 70px;
+  padding: 3% 0%;
   margin: 6% auto;
 }
 
-.account-box p{
-  font-size: 34px;
-  font-weight: 600;
-  color: var(--point-letter);
-  text-align: right;
-  margin-top: 70px;
-}
-
-.account-name{
-  height: 40px;
-  line-height: 40px;;
-}
-.account-members{}
-.account-members ul{ 
+.bookmark ul{ 
   position:relative;
   justify-content: center;
   align-items: center;
 }
-.account-members ul li{
+
+.bookmark ul li{
   width: 50px;
   height: 50px;
   line-height: 50px;
   border-radius: 50%;
-  background-color: rgba(255,255,255,0.3);
   text-align: center;
   font-size: 20px;
   font-weight: 700;
-  color: var(--point-letter);
+  color: #aaa;
   position: absolute;
   top: 0;
-
 }
-.account-members ul li img{ width: 100%;}
+.bookmark ul li img{ width: 100%;}
 
-.account-members ul li:nth-child(1){ 
-  left: 10px;
-  background-color: rgb(164, 255, 225);
+.bookmark ul li:nth-child(1){ 
+  left: 0px;
+  background-color: rgb(255, 190, 164);
   z-index: 7;
 }
-.account-members ul li:nth-child(2){
-  left: 50px;
+.bookmark ul li:nth-child(2){
+  left: 30px;
   background-color: rgb(255, 193, 250);
   z-index: 6;
 }
-.account-members ul li:nth-child(3){
-  left: 90px;
+.bookmark ul li:nth-child(3){
+  left: 60px;
   background-color: rgb(250, 236, 196);
   z-index: 5;
 }
-.account-members ul li:nth-child(4){
-  left: 130px;
+.bookmark ul li:nth-child(4){
+  left: 90px;
   z-index: 4;
+  background-color: rgb(196, 250, 196);
+}
+.bookmark ul li:last-child{
+  background-color: rgba(255,255,255,0.4);
+}
+
+
+
+/* ################## Section : Amount ##################### */
+
+
+.transfer-money{
+  padding: 5% 5% 5% 5%;
+}
+
+.transfer-money h2{
+  display: block;
+}
+
+input{
+  width: 85%;
+  height: 50px;
+  padding-top: 10px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid var(--mid-title);
+}
+
+.add{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  border-radius: 15px;
+  background-color: var(--point-orange);
+  color: var(--point-letter);
+  text-align: center;
+  float: right;
+  border: 0;
+  outline: none;
+}
+
+.add i{
+  transform: rotate(-45deg);
+  font-size: 18px;
 }
 
 /* ################## Section : recent ##################### */
-.recent{
-  padding: 0% 5%;
+.total-sent{
+  padding: 5% 5%;
+  margin-bottom: 15px;
 }
 
-.recent-box{
+.total-sent .emptysign{
+  text-align: center;
+  color: var(--small-letter);
+}
+.total-sent.active .emptysign{
+  display: none;
+}
+
+.total-box{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 5% 0;
 }
 .item{
@@ -225,10 +223,13 @@ h2{
   border-radius: 15px;
   background-color: var(--point-letter);
 }
+
+.item img{ width: 100%;}
+
 .item-info{
+  width: 220px;
   text-align: left;
-  flex-grow: 2;
-  padding-left: 4%;
+  padding-left: 5%;
 }
 
 .item-info p:first-child{
@@ -242,7 +243,10 @@ h2{
 }
 
 .item-amount{
-  font-size: 24px;
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  font-size: 22px;
   color: var(--small-letter);
 }
 
@@ -268,7 +272,6 @@ nav ul li a i{
   color: var(--sub-blue);
 }
 
-nav ul li:nth-child(2) a i{
+nav ul li:nth-child(1) a i{
   color: var(--main-blue);
 }
-

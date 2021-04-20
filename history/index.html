@@ -19,27 +19,26 @@
       <div class="user">
         <img src="../user/images/user.png" alt="user"/>
       </div>
-      <div class="current-balance">
-        <h3>balance</h3>
-        <h4></h4>
-        <p>$ <span class="money"></span></p>
+      <div class="statistics">
+        <div class="btns">
+          <div class="saving active">Saving</div>
+          <div class="expense">Expense</div>
+        </div>
+        <p>$ <span class="money">500,000</span></p>
       </div>
     </div>
-    <section class="transfer">
-      <h2>Transfer money to</h2>
-      <a href="#"><span><i class="xi-search"></i></span></a>
-      <div class="bookmark">
-        <ul></ul>
-      </div>
-    </section>
-    <section class="transfer-money">
-      <h2>Amount</h2>
-      <input type="number">
-      <button class="add"><i class="xi-send"></i></button>
-    </section>
-    <section class="total-sent">
-      <h2>Total Sent</h2>
-      <p class="emptysign">No Recents</p>
+    <section class="history">
+      <h2>History</h2>
+      <div class="history-box" id="expense">
+        <h3>Shopping</h3>
+        <h4>17 April 2021</h4>
+        <p>$ <span class="money">500</span></p>
+      </div>   
+      <div class="history-box" id="saving">
+        <h3>Income</h3>
+        <h4>17 April 2021</h4>
+        <p>$ <span class="money">2,800</span></p>
+      </div>  
     </section>
     <nav>
       <ul>
@@ -61,9 +60,5 @@
       </ul>
     </nav>
   </div>
-
-  <!-- JS -->
-  <script src="js/bookmark.js"></script>
-  <script src="js/function.js"></script>
 </body>
 </html>
