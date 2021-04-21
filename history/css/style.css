@@ -32,7 +32,7 @@ a:visited{ text-decoration: none;}
 
 
 .container{
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* ################## Header ##################### */
@@ -197,6 +197,6 @@ nav ul li a i{
   color: var(--sub-blue);
 }
 
-nav ul li:nth-child(1) a i{
+nav ul li:nth-child(3) a i{
   color: var(--main-blue);
 }

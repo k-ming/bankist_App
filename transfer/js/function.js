@@ -17,6 +17,7 @@ let Mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
 currentDay.innerText = `${day} ${Mon[month]} ${year}`;
 
 
+//reload !!!
 function onLoad(){
   let bill = Number(500000);
   money.innerText = bill;
@@ -26,6 +27,8 @@ function onLoad(){
     money.innerText = currentMoney;
   }
 
+  TransferMoney();
+
 }
 
 //bookmark UI
@@ -34,6 +37,20 @@ function bookmarkList(){
   const li = document.createElement('li');
   bookmark.appendChild(li);
   li.innerHTML +=`<img src="../user/images/${members[i].photo}">`;
+
+  li.addEventListener('click', (e) =>{
+    let target = e.target;
+    target = members[0].name;
+
+    localStorage.setItem('name', target);
+
+
+    sendBtn.addEventListener('click', () => {
+      saveMoney();
+      TransferMoney();
+      current();
+    })
+  })
  }
 }
 
@@ -51,8 +68,7 @@ function current(){
   const money = document.querySelector('.money');
   let cur = money.innerText;
   let transfer = localStorage.getItem('sentMoney');
-  transferMoney = JSON.parse(transfer);
-  let curMon = (cur - transferMoney);
+  let curMon = (cur - transfer);
   localStorage.setItem('current', curMon);
 }
 
@@ -60,8 +76,9 @@ function TransferMoney(){
   let totalBox = document.createElement('div');
   let name = localStorage.getItem('name');
   let sentMoney = localStorage.getItem('sentMoney');
-  
-  if( sentMoney && name){
+
+
+  if( sentMoney){
     //sent-date
     let mon = month < 9 ? `0${month + 1}` : `${month}`;
     
@@ -71,14 +88,15 @@ function TransferMoney(){
 
     //send money UI
     totalBox.classList.add('total-box');
-    totalBox.innerHTML += `<div class="item">
-                            <img src="../user/images/${members[0].photo}">
-                            </div>
-                            <div class="item-info">
-                            <p>${name}</p>
-                            <p>${day}.${mon}.${year}</p>
-                            </div>
-                            <div class="item-amount">$<span>${sentMoney}</span></div>`;
+    totalBox.innerHTML = `<div class="item">
+      <img src="../user/images/${members[0].photo}">
+      </div>
+      <div class="item-info">
+      <p>${name}</p>
+      <p>${day}.${mon}.${year}</p>
+      </div>
+      <div class="item-amount">$<span>${sentMoney}</span></div>`;
+
     const h2 = document.querySelector('.total-sent h2');
     h2.append(totalBox);   
   
@@ -89,3 +107,4 @@ function TransferMoney(){
 
 onLoad();
 bookmarkList();
+
