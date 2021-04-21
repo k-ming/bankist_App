@@ -84,10 +84,11 @@ a:visited{ text-decoration: none;}
   font-size: 20px;
   font-weight: 600;
   color: var(--small-letter);
+  transition: 0.3s;
 }
 
 .active{
-  flex-grow: 1.5;
+  flex-grow: 1.2;
   background-color: var(--point-orange);
   color: var(--point-letter);
 }

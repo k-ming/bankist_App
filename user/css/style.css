@@ -218,12 +218,29 @@ h2{
   justify-content: space-between;
   align-items: center;
   margin: 5% 0;
+  padding: 10px 10px;
+  border-radius: 15px;
 }
+
+#saving{ background-color: var(--point-letter);}
+#expense{
+  background-color: var(--sub-blue);
+  color: var(--point-letter);
+}
+
 .item{
   width: 50px;
   height: 50px;
+  line-height: 50px;
   border-radius: 15px;
+  text-align: center;
   background-color: var(--point-letter);
+}
+
+.item img{ width: 100%;}
+.item i{
+  font-size: 40px;
+  color: var(--main-blue);
 }
 .item-info{
   text-align: left;
@@ -233,18 +250,16 @@ h2{
 
 .item-info p:first-child{
   font-size: 18px;
-  color: var(--small-letter);
 }
 
 .item-info p:last-child{
   font-size: 14px;
-  color: var(--mid-title);
 }
 
 .item-amount{
   font-size: 24px;
-  color: var(--small-letter);
 }
+
 
 /* ################## Nav ##################### */
 

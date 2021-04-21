@@ -17,49 +17,59 @@ let Mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct',
 currentDay.innerText = `${day} ${Mon[month]} ${year}`;
 
 
-function init(){
-  bookmarkList();
+function onLoad(){
   let bill = Number(500000);
   money.innerText = bill;
 
+  let currentMoney = localStorage.getItem('current');
+  if(currentMoney){
+    money.innerText = currentMoney;
+  }
+
 }
-init();
 
 //bookmark UI
 function bookmarkList(){
   for( i=0; i< members.length; i++){
-  let li = document.createElement('li');
+  const li = document.createElement('li');
   bookmark.appendChild(li);
   li.innerHTML +=`<img src="../user/images/${members[i].photo}">`;
-
-  li.addEventListener('click', (e) =>{
-    let target = e.target;
-    target = members[0].name;
-
-  
-    localStorage.setItem('name', target);
-  
-  // send Money
-    sendBtn.addEventListener('click', ()=>{
-      current();
-      TransferMoney();
-    })
-  })
-}
+ }
 }
 
+
+
+//save money to localstorage
+function saveMoney(){
+  let sentMon = moneyInput.value;
+  localStorage.setItem('sentMoney', sentMon);
+
+}
+
+//current money to localstorage
+function current(){  
+  const money = document.querySelector('.money');
+  let cur = money.innerText;
+  let transfer = localStorage.getItem('sentMoney');
+  transferMoney = JSON.parse(transfer);
+  let curMon = (cur - transferMoney);
+  localStorage.setItem('current', curMon);
+}
 
 function TransferMoney(){
-  if(moneyInput.value > 0){
-    //sent
+  let totalBox = document.createElement('div');
+  let name = localStorage.getItem('name');
+  let sentMoney = localStorage.getItem('sentMoney');
+  
+  if( sentMoney && name){
+    //sent-date
     let mon = month < 9 ? `0${month + 1}` : `${month}`;
-
+    
+    //message-empty
     const alert = document.querySelector('.total-sent');
     alert.classList.add('active');
-    let name = localStorage.getItem('name');
 
     //send money UI
-    let totalBox = document.createElement('div');
     totalBox.classList.add('total-box');
     totalBox.innerHTML += `<div class="item">
                             <img src="../user/images/${members[0].photo}">
@@ -68,18 +78,14 @@ function TransferMoney(){
                             <p>${name}</p>
                             <p>${day}.${mon}.${year}</p>
                             </div>
-                            <div class="item-amount">$<span>${moneyInput.value}</span></div>`;
- 
+                            <div class="item-amount">$<span>${sentMoney}</span></div>`;
     const h2 = document.querySelector('.total-sent h2');
-    h2.append(totalBox);
-    moneyInput.value = '';
+    h2.append(totalBox);   
+  
   }
 }
 
-//current money
-function current(){  
-  const money = document.querySelector('.money');
-  const cur = money.innerText;
-  const transfer = Number(moneyInput.value);
-  money.innerText = (cur - transfer);
-}
+
+
+onLoad();
+bookmarkList();
